@@ -13,36 +13,33 @@
 </template>
 
 <script lang="ts">
-import { ElForm } from 'element-plus'
-import { defineComponent, reactive, ref } from 'vue'
-import {useRouter} from "vue-router"
+import { ElForm } from "element-plus";
+import { defineComponent, reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default defineComponent({
   setup() {
-    const {push} = useRouter()
+    const { push } = useRouter();
     const rules = {
-      username: [{required: true, message: "请输入用户名！"}],
-      pwd: [{required: true, message: "请输入密码！"}]
-    }
-    const form = ref<InstanceType<typeof ElForm> | null>(null)
+      username: [{ required: true, message: "请输入用户名！" }],
+      pwd: [{ required: true, message: "请输入密码！" }],
+    };
+    const form = ref<InstanceType<typeof ElForm> | null>(null);
     const formData = reactive({
       username: "",
-      pwd: ""
-    })
+      pwd: "",
+    });
 
     const login = () => {
-      form.value?.validate().then(valid => {
-
-      })
-    }
-
+      form.value?.validate().then((valid) => {});
+    };
 
     return {
       formData,
       form,
       rules,
-      login
-    }
+      login,
+    };
   },
-})
+});
 </script>

@@ -1,23 +1,19 @@
-import { createApp } from 'vue'
+import { createApp } from "vue";
 
-import App from './App.vue'
+import App from "./App.vue";
 
-import router from "@/router"
+import router from "@/router";
 
-import store from "@/store"
+import store from "@/store";
 
-import { locale } from 'element-plus'
+import ElementPlus from "element-plus";
 
-import lang from "element-plus/lib/locale/lang/zh-cn"
+import "element-plus/lib/theme-chalk/index.css"
 
-import {assignComponents} from "@/components/element-components"
+import lang from "element-plus/lib/locale/lang/zh-cn";
 
-locale(lang)
-
-const app = createApp(App)
-
-assignComponents(app)
-
-app.config.globalProperties.$ELEMENT = {size: "small"}
-
-app.use(router).use(store).mount('#app')
+createApp(App)
+  .use(router)
+  .use(store)
+  .use(ElementPlus, { size: "small", locale: lang })
+  .mount("#app");
