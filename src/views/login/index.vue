@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { ElForm } from "element-plus";
+import {ElForm} from "element-plus"
 import { defineComponent, reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 
@@ -24,14 +24,14 @@ export default defineComponent({
       username: [{ required: true, message: "请输入用户名！" }],
       pwd: [{ required: true, message: "请输入密码！" }],
     };
-    const form = ref<InstanceType<typeof ElForm> | null>(null);
+    const form = ref<InstanceType<typeof ElForm>>();
     const formData = reactive({
       username: "",
       pwd: "",
     });
 
     const login = () => {
-      form.value?.validate().then((valid) => {});
+      form.value?.validate().then((valid: Boolean) => {});
     };
 
     return {
