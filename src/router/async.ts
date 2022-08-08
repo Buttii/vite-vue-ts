@@ -6,6 +6,7 @@ import CommonViewer from "@/layout/CommonViewer.vue";
 export const asyncRoutes: RouteRecordRaw[] = [
     {
         path: "/",
+        redirect: "/",
         component: Layout,
         children: [
             {
@@ -20,6 +21,7 @@ export const asyncRoutes: RouteRecordRaw[] = [
             },
             {
                 path: "list",
+                name: "list",
                 component: CommonViewer,
                 meta: {title: "列表管理", navBar: true},
                 children: [
